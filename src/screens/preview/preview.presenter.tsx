@@ -17,7 +17,7 @@ const PreviewUI = ({
   return (
     <S.Wrapper>
       <ScrollView>
-        <VStack spacing={14} mh={22} mv={16}>
+        <VStack spacing={14} mh={22} mt={16} mb={90}>
           {cards.map((card: ICardProps) => (
             <View key={card.id}>
               <PreviewCard id={card.id} />

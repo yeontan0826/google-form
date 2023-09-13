@@ -24,11 +24,14 @@ module.exports = function (api) {
             '@screens': './src/screens',
             '@stacks': './src/stacks',
             '@redux': './src/redux',
+            '@styles': './src/styles',
+            '@utils': './src/utils',
             '@': './',
           },
         },
       ],
       'babel-plugin-styled-components',
+      'react-native-reanimated/plugin',
     ],
   };
 };

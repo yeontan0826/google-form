@@ -1,20 +1,33 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import 'react-native-gesture-handler';
 
-export default function App() {
+import { SafeAreaView, StatusBar } from 'react-native';
+import { Provider } from 'react-redux';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
+import { NavigationContainer } from '@react-navigation/native';
+import { ThemeProvider } from 'styled-components/native';
+
+import { theme } from '@styles/theme';
+import store from '@redux/store';
+import MainStack from '@stacks/main';
+
+const App = (): JSX.Element => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={{ flex: 1 }}>
+      <StatusBar barStyle="dark-content" backgroundColor={'white'} />
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <BottomSheetModalProvider>
+          <ThemeProvider theme={theme}>
+            <Provider store={store}>
+              <NavigationContainer>
+                <MainStack />
+              </NavigationContainer>
+            </Provider>
+          </ThemeProvider>
+        </BottomSheetModalProvider>
+      </GestureHandlerRootView>
+    </SafeAreaView>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;

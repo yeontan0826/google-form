@@ -1,4 +1,5 @@
-import styled, { DefaultTheme } from 'styled-components/native';
+import styled from 'styled-components/native';
+import { colors } from '@styles/theme';
 
 export const Container = styled.View`
   flex-direction: row;
@@ -19,5 +20,5 @@ export const Label = styled.Text`
   margin-left: 2px;
   font-size: 14px;
   font-weight: 600;
-  color: ${({ theme }: { theme: DefaultTheme }) => theme.colors.gray_dark};
+  color: ${colors.gray_dark};
 `;

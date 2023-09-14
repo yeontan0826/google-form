@@ -1,0 +1,13 @@
+diff --git a/node_modules/@react-native-material/core/src/FAB.tsx b/node_modules/@react-native-material/core/src/FAB.tsx
+index 3d56226..488b375 100644
+--- a/node_modules/@react-native-material/core/src/FAB.tsx
++++ b/node_modules/@react-native-material/core/src/FAB.tsx
+@@ -140,7 +140,7 @@ const FAB: React.FC<FABProps> = ({
+     Animated.timing(animated, {
+       toValue: visible ? 1 : 0,
+       duration: 200,
+-      useNativeDriver: false,
++      useNativeDriver: true,
+     }).start();
+   }, [visible]);
+ 

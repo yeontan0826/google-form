@@ -11,16 +11,3 @@ index 3d56226..488b375 100644
      }).start();
    }, [visible]);
  
-diff --git a/node_modules/@react-native-material/core/src/Pressable.tsx b/node_modules/@react-native-material/core/src/Pressable.tsx
-index 264f625..89b82fc 100644
---- a/node_modules/@react-native-material/core/src/Pressable.tsx
-+++ b/node_modules/@react-native-material/core/src/Pressable.tsx
-@@ -86,7 +86,7 @@ const Pressable: React.FC<PressableProps> = ({
-           ),
-           easing: Easing.out(Easing.ease),
-           duration: 400,
--          useNativeDriver: false,
-+          useNativeDriver: true,
-         }).start();
-       }
-     },

@@ -1,6 +1,6 @@
 import { ScrollView, TouchableOpacity, View } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { Button, FAB, Text, VStack } from '@react-native-material/core';
+import { Button, Text, VStack } from '@react-native-material/core';
 
 import * as S from './preview.styles';
 import PreviewCard from '@commons/previewCard';
@@ -31,19 +31,13 @@ const PreviewUI = ({
           </S.FooterContainer>
         </VStack>
       </ScrollView>
-      <FAB
-        style={fab}
-        pressEffect="ripple"
-        color={colors.white}
-        onPress={handleGoBack}
-        icon={
-          <MaterialCommunityIcons
-            name="pencil-outline"
-            size={24}
-            color={colors.purple}
-          />
-        }
-      />
+      <TouchableOpacity activeOpacity={0.6} style={fab} onPress={handleGoBack}>
+        <MaterialCommunityIcons
+          name="pencil-outline"
+          size={26}
+          color={colors.white}
+        />
+      </TouchableOpacity>
     </S.Wrapper>
   );
 };

@@ -9,6 +9,10 @@ export const styles = StyleSheet.create({
     bottom: 22,
     width: 55,
     aspectRatio: 1,
+    borderRadius: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: colors.purple_light,
   },
   eraseLabel: {
     color: colors.purple,

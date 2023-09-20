@@ -2,8 +2,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { StackNavigationProp } from '@react-navigation/stack';
 
 import FormUI from './form.presenter';
-import { IStateProps, addCard } from '@redux/store';
 import { getRandomId } from '@utils/getRandomId';
+import { IStateProps } from '@redux/reducer/types';
+import { addCard } from '@redux/reducer/cardReducer';
 
 const Form = ({
   navigation,

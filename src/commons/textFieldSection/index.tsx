@@ -1,16 +1,17 @@
 import { TextInput } from '@react-native-material/core';
+import { Text } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { propsStyles } from './styles';
+import { colors } from '@styles/theme';
+
 import {
   ICardProps,
   IStateProps,
   InputTypes,
   inputTypes,
-  setText,
-} from '@redux/store';
-import { Text } from 'react-native';
-import { colors } from '@styles/theme';
+} from '@redux/reducer/types';
+import { setText } from '@redux/reducer/cardReducer';
 
 const TextFieldSection = ({ id }: Pick<ICardProps, 'id'>): JSX.Element => {
   const dispatch = useDispatch();

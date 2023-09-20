@@ -1,10 +1,16 @@
 import { Alert, TouchableOpacity, View } from 'react-native';
-import { useSelector } from 'react-redux';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { useSelector } from 'react-redux';
 
 import * as S from './styles';
 import { colors } from '@styles/theme';
-import { ICardProps, IStateProps, InputTypes, inputTypes } from '@redux/store';
+
+import {
+  ICardProps,
+  IStateProps,
+  InputTypes,
+  inputTypes,
+} from '@redux/reducer/types';
 
 const PreviewCardTitle = ({ id }: Pick<ICardProps, 'id'>): JSX.Element => {
   const inputType: InputTypes = useSelector((state: IStateProps) => {
@@ -12,7 +18,7 @@ const PreviewCardTitle = ({ id }: Pick<ICardProps, 'id'>): JSX.Element => {
       (card) => card.id === id,
     ) as ICardProps;
     return currentCard.inputType;
-  }) as string;
+  }) as InputTypes;
 
   const cardTitle: string = useSelector((state: IStateProps) => {
     const currentCard = state.cards.find(

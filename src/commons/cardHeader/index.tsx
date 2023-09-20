@@ -1,18 +1,21 @@
 import { useMemo, useRef } from 'react';
 import { Text, View } from 'react-native';
-import { shallowEqual, useSelector, useDispatch } from 'react-redux';
 import { Button, IconButton, TextInput } from '@react-native-material/core';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { BottomSheetModal } from '@gorhom/bottom-sheet';
+import { shallowEqual, useSelector, useDispatch } from 'react-redux';
 
 import * as S from './styles';
 import { colors } from '@styles/theme';
+
 import { ICard } from '@commons/card';
-import { ICardProps, IStateProps, InputTypes, setTitle } from '@redux/store';
 import { IInputTypeItemProps } from '@commons/inputTypeItem';
 import BottomSheetInputTypeList, {
   inputTypeItems,
 } from '@commons/bottomSheet/inputTypeList';
+
+import { ICardProps, IStateProps, InputTypes } from '@redux/reducer/types';
+import { setTitle } from '@redux/reducer/cardReducer';
 
 const CardHeader = ({
   id,

@@ -1,14 +1,17 @@
 import { memo } from 'react';
-import { shallowEqual, useSelector, useDispatch } from 'react-redux';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { shallowEqual, useSelector, useDispatch } from 'react-redux';
 
 import * as S from './styles';
-import { ICardProps, IStateProps, focus, inputTypes } from '@redux/store';
 import { colors } from '@styles/theme';
+
 import CardHeader from '@commons/cardHeader';
 import TextFieldSection from '@commons/textFieldSection';
 import CardFooter from '@commons/cardFooter';
 import ItemTypeSection from '@commons/itemTypeSection';
+
+import { ICardProps, IStateProps, inputTypes } from '@redux/reducer/types';
+import { focus } from '@redux/reducer/cardReducer';
 
 export interface ICard extends ICardProps {
   isTitle: boolean;

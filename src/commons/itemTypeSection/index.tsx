@@ -1,22 +1,25 @@
 import { TouchableOpacity, View } from 'react-native';
-import { useSelector, useDispatch } from 'react-redux';
 import { IconButton, TextInput } from '@react-native-material/core';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { useSelector, useDispatch } from 'react-redux';
 
 import * as S from './styles';
 import { colors } from '@styles/theme';
 import { getRandomId } from '@utils/getRandomId';
+
 import {
   ICardProps,
   IItemTypeProps,
   IStateProps,
   InputTypes,
+  inputTypes,
+} from '@redux/reducer/types';
+import {
   addEtcItem,
   addSelectItem,
-  inputTypes,
   removeSelectItem,
   setText,
-} from '@redux/store';
+} from '@redux/reducer/cardReducer';
 
 const ItemTypeSection = ({ id }: Pick<ICardProps, 'id'>): JSX.Element => {
   const dispatch = useDispatch();

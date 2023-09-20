@@ -1,9 +1,10 @@
-import { useSelector } from 'react-redux';
 import { TextInput } from '@react-native-material/core';
+import { useSelector } from 'react-redux';
 
 import * as S from './styles';
-import { ICardProps, IStateProps, inputTypes } from '@redux/store';
 import { colors } from '@styles/theme';
+
+import { ICardProps, IStateProps, inputTypes } from '@redux/reducer/types';
 
 const InputTextField = ({ id }: Pick<ICardProps, 'id'>): JSX.Element => {
   const inputType = useSelector((state: IStateProps) => {

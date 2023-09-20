@@ -1,11 +1,12 @@
 import { View } from 'react-native';
-import { useSelector } from 'react-redux';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { TextInput } from '@react-native-material/core';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { useSelector } from 'react-redux';
 
 import * as S from './styles';
 import { colors } from '@styles/theme';
-import { ICardProps, IItemTypeProps, IStateProps } from '@redux/store';
+
+import { ICardProps, IItemTypeProps, IStateProps } from '@redux/reducer/types';
 
 const InputRadio = ({ id }: Pick<ICardProps, 'id'>): JSX.Element => {
   const contents = useSelector((state: IStateProps) => {

@@ -5,8 +5,9 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import * as S from './form.styles';
 import { colors } from '@styles/theme';
 import { IFormUI } from './form.types';
-import { ICardProps, inputTypes } from '@redux/store';
 import Card from '@commons/card';
+
+import { ICardProps, inputTypes } from '@redux/reducer/types';
 
 const FormUI = ({
   cards,

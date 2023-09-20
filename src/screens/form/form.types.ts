@@ -1,4 +1,4 @@
-import { ICardProps } from '@redux/store';
+import { ICardProps } from '@redux/reducer/types';
 
 export interface IFormUI {
   cards: ICardProps[];

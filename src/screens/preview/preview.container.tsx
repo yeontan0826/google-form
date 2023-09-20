@@ -1,9 +1,9 @@
 import { Alert } from 'react-native';
-import { useSelector } from 'react-redux';
 import { StackNavigationProp } from '@react-navigation/stack';
+import { useSelector } from 'react-redux';
 
 import PreviewUI from './preview.presenter';
-import { IStateProps } from '@redux/store';
+import { IStateProps } from '@redux/reducer/types';
 
 const Preview = ({
   navigation,

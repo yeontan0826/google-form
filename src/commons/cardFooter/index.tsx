@@ -1,21 +1,21 @@
 import { useRef } from 'react';
 import { Switch, TouchableHighlight, View } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
 import { IconButton } from '@react-native-material/core';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { BottomSheetModal } from '@gorhom/bottom-sheet';
+import { useDispatch, useSelector } from 'react-redux';
 
 import * as S from './styles';
 import { colors } from '@styles/theme';
 import { getRandomId } from '@utils/getRandomId';
+import BottomSheetMore from '@commons/bottomSheet/more';
+
+import { ICardProps, IStateProps } from '@redux/reducer/types';
 import {
-  ICardProps,
-  IStateProps,
   copyCard,
   removeCard,
   toggleIsRequired,
-} from '@redux/store';
-import BottomSheetMore from '@commons/bottomSheet/more';
+} from '@redux/reducer/cardReducer';
 
 const CardFooter = ({ id }: Pick<ICardProps, 'id'>): JSX.Element => {
   const dispatch = useDispatch();

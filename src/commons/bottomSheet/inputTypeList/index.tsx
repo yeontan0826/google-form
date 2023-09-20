@@ -1,17 +1,19 @@
 import { ForwardedRef, forwardRef, useCallback, useMemo } from 'react';
-import { AnyAction, Dispatch } from '@reduxjs/toolkit';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import {
   BottomSheetBackdropProps,
   BottomSheetFlatList,
   BottomSheetModal,
 } from '@gorhom/bottom-sheet';
+import { AnyAction, Dispatch } from '@reduxjs/toolkit';
 
-import BottomSheetBackDrop, { IBottomSheetBackDrop } from '../backdrop';
 import { colors } from '@styles/theme';
 import { ICard } from '@commons/card';
-import { InputTypes, inputTypes, typeChange } from '@redux/store';
 import InputTypeItem, { IInputTypeItemProps } from '@commons/inputTypeItem';
+import BottomSheetBackDrop, { IBottomSheetBackDrop } from '../backdrop';
+
+import { InputTypes, inputTypes } from '@redux/reducer/types';
+import { typeChange } from '@redux/reducer/cardReducer';
 
 interface IBottomSheetInputTypeList
   extends Pick<IBottomSheetBackDrop, 'onCloseSheet'>,

@@ -1,11 +1,17 @@
 import { useSelector } from 'react-redux';
 
 import * as S from './styles';
-import { ICardProps, IStateProps, InputTypes, inputTypes } from '@redux/store';
 import PreviewCardTitle from '@commons/previewCardTitle';
 import InputTextField from '@commons/inputTextField';
 import InputRadio from '@commons/inputRadio';
 import InputCheckbox from '@commons/inputCheckbox';
+
+import {
+  ICardProps,
+  IStateProps,
+  InputTypes,
+  inputTypes,
+} from '@redux/reducer/types';
 
 const PreviewCard = ({ id }: Pick<ICardProps, 'id'>): JSX.Element => {
   const inputType: InputTypes = useSelector((state: IStateProps) => {

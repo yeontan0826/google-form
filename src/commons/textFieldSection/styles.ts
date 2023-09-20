@@ -1,5 +1,5 @@
+import { InputTypes, inputTypes } from '@redux/reducer/types';
 import { Platform, StyleSheet } from 'react-native';
-import { InputTypes, inputTypes } from '@redux/store';
 
 export const propsStyles = (isTitle: boolean, inputType: InputTypes) =>
   StyleSheet.create({

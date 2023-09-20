@@ -3,7 +3,8 @@ import { TouchableHighlight } from 'react-native';
 
 import { Container, IconWrapper, Label } from './styles';
 import { colors } from '@styles/theme';
-import { InputTypes } from '@redux/store';
+
+import { InputTypes } from '@redux/reducer/types';
 
 export interface IInputTypeItemProps {
   icon: (props?: any) => JSX.Element | ReactNode;

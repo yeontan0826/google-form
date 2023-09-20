@@ -17,9 +17,14 @@ import {
 import {
   addEtcItem,
   addSelectItem,
+  moveContent,
   removeSelectItem,
   setText,
 } from '@redux/reducer/cardReducer';
+import DraggableFlatList, {
+  DragEndParams,
+  RenderItemParams,
+} from 'react-native-draggable-flatlist';
 
 const ItemTypeSection = ({ id }: Pick<ICardProps, 'id'>): JSX.Element => {
   const dispatch = useDispatch();
@@ -50,83 +55,115 @@ const ItemTypeSection = ({ id }: Pick<ICardProps, 'id'>): JSX.Element => {
     return contents.some((content: IItemTypeProps) => content.isEtc);
   });
 
-  const handleChangeContentText = (text: string, contentId: string): void => {
+  const handleChangeContentText = (text: string, contentId: string) => {
     dispatch(setText({ cardId: id, contentId, text }));
   };
 
-  const handleAddItem = (text: string) => (): void => {
+  const handleAddItem = (text: string) => () => {
     dispatch(addSelectItem({ id, contentId: getRandomId(), text }));
   };
 
-  const handleRemoveSelectItem = (contentId: string) => (): void => {
+  const handleRemoveSelectItem = (contentId: string) => () => {
     dispatch(removeSelectItem({ cardId: id, contentId }));
   };
 
-  const handleAddEtcItem = (): void => {
+  const handleAddEtcItem = () => {
     dispatch(addEtcItem({ id, contentId: getRandomId() }));
+  };
+
+  const onDragEnd = ({ from, to }: DragEndParams<IItemTypeProps>) => {
+    dispatch(
+      moveContent({ cardId: id, fromIndex: String(from), toIndex: String(to) }),
+    );
+  };
+
+  const renderItem = ({
+    item,
+    drag,
+    isActive,
+  }: RenderItemParams<IItemTypeProps>): JSX.Element => {
+    return (
+      <S.ItemContainer
+        key={item.id}
+        isEtc={item.isEtc}
+        isActive={isActive}
+        isFocused={isFocused && contents.length > 1}>
+        <S.ContentHandle
+          isFocused={isFocused && contents.length > 1 && !item.isEtc}
+          onLongPress={drag}
+          disabled={isActive}>
+          <MaterialCommunityIcons
+            name="dots-vertical"
+            color={colors.gray}
+            size={24}
+          />
+        </S.ContentHandle>
+        {/* 객관식 질문 */}
+        {inputType === inputTypes.RADIO ? (
+          <MaterialCommunityIcons
+            name="radiobox-blank"
+            size={24}
+            color={colors.gray}
+          />
+        ) : null}
+        {/* 체크박스 */}
+        {inputType === inputTypes.CHECKBOX ? (
+          <MaterialCommunityIcons
+            name="checkbox-blank-outline"
+            size={24}
+            color={colors.gray}
+          />
+        ) : null}
+        {isFocused ? (
+          <TextInput
+            variant="standard"
+            inputContainerStyle={inputContainer}
+            inputStyle={[
+              fontStyle,
+              { color: item.isEtc ? colors.gray : colors.black },
+            ]}
+            style={{ flex: 1 }}
+            color={colors.purple}
+            value={item.isEtc ? '기타...' : item.text}
+            onChangeText={(text: string) =>
+              handleChangeContentText(text, item.id)
+            }
+            editable={!item.isEtc}
+          />
+        ) : (
+          <S.ItemLabel isEtc={item.isEtc}>
+            {item.isEtc ? '기타...' : item.text}
+          </S.ItemLabel>
+        )}
+        {/* 옵션 항목이 2개 이상일 때, 삭제 아이콘 표시 */}
+        {isFocused && contents.length > 1 ? (
+          <IconButton
+            onPress={handleRemoveSelectItem(item.id)}
+            pressEffect="ripple"
+            icon={() => (
+              <MaterialCommunityIcons
+                name="close"
+                size={26}
+                color={colors.gray_dark}
+              />
+            )}
+          />
+        ) : null}
+      </S.ItemContainer>
+    );
   };
 
   const { inputContainer, fontStyle } = S.propsStyles;
   return (
     <View style={{ marginTop: isFocused ? 0 : 24 }}>
-      {contents.map((content: IItemTypeProps) => (
-        <S.ItemContainer
-          key={content.id}
-          isEtc={content.isEtc}
-          isFocused={isFocused}>
-          {/* 객관식 질문 */}
-          {inputType === inputTypes.RADIO ? (
-            <MaterialCommunityIcons
-              name="radiobox-blank"
-              size={24}
-              color={colors.gray}
-            />
-          ) : null}
-          {/* 체크박스 */}
-          {inputType === inputTypes.CHECKBOX ? (
-            <MaterialCommunityIcons
-              name="checkbox-blank-outline"
-              size={24}
-              color={colors.gray}
-            />
-          ) : null}
-          {isFocused ? (
-            <TextInput
-              variant="standard"
-              inputContainerStyle={inputContainer}
-              inputStyle={[
-                fontStyle,
-                { color: content.isEtc ? colors.gray : colors.black },
-              ]}
-              style={{ flex: 1 }}
-              color={colors.purple}
-              value={content.isEtc ? '기타...' : content.text}
-              onChangeText={(text: string) =>
-                handleChangeContentText(text, content.id)
-              }
-              editable={!content.isEtc}
-            />
-          ) : (
-            <S.ItemLabel isEtc={content.isEtc}>
-              {content.isEtc ? '기타...' : content.text}
-            </S.ItemLabel>
-          )}
-          {/* 옵션 항목이 2개 이상일 때, 삭제 아이콘 표시 */}
-          {isFocused && contents.length > 1 ? (
-            <IconButton
-              onPress={handleRemoveSelectItem(content.id)}
-              pressEffect="ripple"
-              icon={() => (
-                <MaterialCommunityIcons
-                  name="close"
-                  size={26}
-                  color={colors.gray_dark}
-                />
-              )}
-            />
-          ) : null}
-        </S.ItemContainer>
-      ))}
+      {Array.isArray(contents) && (
+        <DraggableFlatList
+          data={contents}
+          keyExtractor={({ id }: IItemTypeProps) => id}
+          onDragEnd={onDragEnd}
+          renderItem={renderItem}
+        />
+      )}
       {/* isFocus일 때, 옵션 추가 표시 */}
       {isFocused ? (
         <S.ItemAddContainer>

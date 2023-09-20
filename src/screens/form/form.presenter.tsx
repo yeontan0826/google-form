@@ -1,5 +1,7 @@
-import { ScrollView, View } from 'react-native';
-import { VStack } from '@react-native-material/core';
+import { View } from 'react-native';
+import DraggableFlatList, {
+  RenderItemParams,
+} from 'react-native-draggable-flatlist';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import * as S from './form.styles';
@@ -11,20 +13,44 @@ import { ICardProps, inputTypes } from '@redux/reducer/types';
 
 const FormUI = ({
   cards,
+  onDragEnd,
   addNewCard,
   handleGoPreview,
 }: IFormUI): JSX.Element => {
+  const [cardTitle, ...cardsExceptTitle] = cards;
+
+  const listHeader = (): JSX.Element => {
+    return <Card isTitle={true} {...cardTitle} />;
+  };
+
+  const renderItem = ({
+    item,
+    drag,
+    isActive,
+  }: RenderItemParams<ICardProps>) => {
+    return (
+      <Card
+        isTitle={item.inputType === inputTypes.TITLE}
+        drag={drag}
+        isActive={isActive}
+        {...item}
+      />
+    );
+  };
+
   return (
     <S.Wrapper>
-      <ScrollView>
-        <VStack spacing={14} mh={22} mt={16} mb={65}>
-          {cards.map((card: ICardProps, index: number) => (
-            <View key={card.id}>
-              <Card isTitle={card.inputType === inputTypes.TITLE} {...card} />
-            </View>
-          ))}
-        </VStack>
-      </ScrollView>
+      <DraggableFlatList
+        data={cardsExceptTitle}
+        contentContainerStyle={S.flatListStyles.container}
+        containerStyle={{ flex: 1 }}
+        keyExtractor={({ id }) => id}
+        ListHeaderComponent={listHeader}
+        onDragEnd={onDragEnd}
+        ListHeaderComponentStyle={{ marginBottom: 16 }}
+        ItemSeparatorComponent={() => <View style={{ height: 16 }} />}
+        renderItem={renderItem}
+      />
       <S.AddCardWrapper>
         <S.AddCard activeOpacity={0.6} onPress={handleGoPreview}>
           <MaterialCommunityIcons

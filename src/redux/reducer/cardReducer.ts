@@ -276,6 +276,32 @@ const cardSlice = createSlice({
 
       targetCard.isRequired = !targetCard.isRequired;
     },
+
+    /**
+     * 카드 순서를 변경하는 함수
+     */
+    moveCard: (state: ICardProps[], action: IActionProps) => {
+      const copiedState: ICardProps[] = [...state];
+      const movingCard: ICardProps[] = copiedState.splice(
+        Number(action.payload.fromIndex) + 1,
+        1,
+      );
+      copiedState.splice(Number(action.payload.toIndex) + 1, 0, ...movingCard);
+      return copiedState;
+    },
+
+    /**
+     * 설문 종류가 선택형(객관식 질문, 체크박스)일 때, 항목 순서를 변경하는 함수
+     */
+    moveContent: (state: ICardProps[], action: IActionProps) => {
+      const targetCard: ICardProps = state.find(
+        (card: ICardProps) => card.id === action.payload.cardId,
+      ) as ICardProps;
+      const contents: IItemTypeProps[] =
+        targetCard.contents as IItemTypeProps[];
+      const tmp = contents.splice(Number(action.payload.fromIndex), 1);
+      contents.splice(Number(action.payload.toIndex), 0, ...tmp);
+    },
   },
 });
 
@@ -291,6 +317,8 @@ export const {
   removeSelectItem,
   addEtcItem,
   toggleIsRequired,
+  moveCard,
+  moveContent,
 } = cardSlice.actions;
 
 export default cardSlice.reducer;

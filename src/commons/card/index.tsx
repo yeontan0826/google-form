@@ -15,9 +15,11 @@ import { focus } from '@redux/reducer/cardReducer';
 
 export interface ICard extends ICardProps {
   isTitle: boolean;
+  drag?: () => void;
+  isActive?: boolean;
 }
 
-const Card = ({ isTitle, id }: ICard): JSX.Element => {
+const Card = ({ isTitle, id, drag, isActive }: ICard): JSX.Element => {
   const dispatch = useDispatch();
 
   const isFocused: boolean = useSelector((state: IStateProps) => {
@@ -40,11 +42,17 @@ const Card = ({ isTitle, id }: ICard): JSX.Element => {
   };
 
   return (
-    <S.Container onPress={setIsFocused} isFocused={isFocused}>
+    <S.Container
+      onPress={setIsFocused}
+      isFocused={isFocused}
+      isActive={isActive}>
       {isTitle ? (
         <S.TitleHighlight />
       ) : (
-        <S.CardHandle isFocused={isFocused}>
+        <S.CardHandle
+          isFocused={isFocused}
+          onLongPress={drag}
+          disabled={isActive || !isFocused}>
           <MaterialCommunityIcons
             name="drag-horizontal-variant"
             size={24}

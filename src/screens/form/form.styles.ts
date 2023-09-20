@@ -1,5 +1,13 @@
-import { Platform } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 import styled, { DefaultTheme } from 'styled-components/native';
+
+export const flatListStyles = StyleSheet.create({
+  container: {
+    paddingHorizontal: 22,
+    paddingTop: 16,
+    paddingBottom: 65,
+  },
+});
 
 export const Wrapper = styled.View`
   position: relative;

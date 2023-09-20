@@ -1,7 +1,10 @@
 import { Platform } from 'react-native';
 import styled, { DefaultTheme } from 'styled-components/native';
 
-export const Container = styled.Pressable<{ isFocused: boolean }>`
+export const Container = styled.Pressable<{
+  isFocused: boolean;
+  isActive: boolean;
+}>`
   position: relative;
   background-color: ${({ theme }: { theme: DefaultTheme }) =>
     theme.colors.white};
@@ -13,10 +16,11 @@ export const Container = styled.Pressable<{ isFocused: boolean }>`
   border-radius: 8px;
   border: 1px solid
     ${({ theme }: { theme: DefaultTheme }) => theme.colors.gray_light};
+  opacity: ${({ isActive }: { isActive: boolean }) => (isActive ? 0.7 : 1)};
   overflow: hidden;
 `;
 
-export const CardHandle = styled.View<{ isFocused: boolean }>`
+export const CardHandle = styled.Pressable<{ isFocused: boolean }>`
   display: ${({ isFocused }: { isFocused: boolean }) =>
     isFocused ? 'flex' : 'none'};
   position: absolute;

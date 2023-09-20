@@ -1,25 +1,5 @@
-import { colors } from '@styles/theme';
-import { StyleSheet } from 'react-native';
-import styled from 'styled-components/native';
-
-export const styles = StyleSheet.create({
-  fab: {
-    position: 'absolute',
-    right: 22,
-    bottom: 22,
-    width: 55,
-    aspectRatio: 1,
-    borderRadius: 30,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: colors.purple_light,
-  },
-  eraseLabel: {
-    color: colors.purple,
-    fontSize: 14,
-    fontWeight: '500',
-  },
-});
+import { TouchableOpacity } from 'react-native';
+import styled, { DefaultTheme } from 'styled-components/native';
 
 export const Wrapper = styled.View`
   position: relative;
@@ -30,4 +10,23 @@ export const FooterContainer = styled.View`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+`;
+
+export const Fab = styled(TouchableOpacity)`
+  position: absolute;
+  right: 22px;
+  bottom: 22px;
+  width: 55px;
+  aspect-ratio: 1;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  background-color: ${({ theme }: { theme: DefaultTheme }) =>
+    theme.colors.purple_light};
+`;
+
+export const EraseLabel = styled.Text`
+  color: ${({ theme }: { theme: DefaultTheme }) => theme.colors.purple};
+  font-size: 14px;
+  font-weight: 500;
 `;

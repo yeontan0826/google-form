@@ -1,11 +1,12 @@
 import { ScrollView, TouchableOpacity, View } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { Button, Text, VStack } from '@react-native-material/core';
+import { Button, VStack } from '@react-native-material/core';
 
 import * as S from './preview.styles';
-import PreviewCard from '@commons/previewCard';
 import { IPreviewUI } from './preview.types';
 import { colors } from '@styles/theme';
+import PreviewCard from '@commons/previewCard';
+
 import { ICardProps } from '@redux/reducer/types';
 
 const PreviewUI = ({
@@ -13,7 +14,6 @@ const PreviewUI = ({
   handleSubmit,
   handleGoBack,
 }: IPreviewUI): JSX.Element => {
-  const { fab, eraseLabel } = S.styles;
   return (
     <S.Wrapper>
       <ScrollView>
@@ -26,18 +26,18 @@ const PreviewUI = ({
           <S.FooterContainer>
             <Button title="제출" color={colors.purple} onPress={handleSubmit} />
             <TouchableOpacity activeOpacity={0.6}>
-              <Text style={eraseLabel}>양식 지우기</Text>
+              <S.EraseLabel>양식 지우기</S.EraseLabel>
             </TouchableOpacity>
           </S.FooterContainer>
         </VStack>
       </ScrollView>
-      <TouchableOpacity activeOpacity={0.6} style={fab} onPress={handleGoBack}>
+      <S.Fab activeOpacity={0.6} onPress={handleGoBack}>
         <MaterialCommunityIcons
           name="pencil-outline"
           size={26}
           color={colors.white}
         />
-      </TouchableOpacity>
+      </S.Fab>
     </S.Wrapper>
   );
 };

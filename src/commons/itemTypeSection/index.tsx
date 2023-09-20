@@ -66,14 +66,15 @@ const ItemTypeSection = ({ id }: Pick<ICardProps, 'id'>): JSX.Element => {
     dispatch(addEtcItem({ id, contentId: getRandomId() }));
   };
 
-  const { inputStyle, inputContainer, fontStyle } = S.propsStyles();
+  const { inputContainer, fontStyle } = S.propsStyles;
   return (
     <View style={{ marginTop: isFocused ? 0 : 24 }}>
-      {contents.map((content: IItemTypeProps, index: number) => (
+      {contents.map((content: IItemTypeProps) => (
         <S.ItemContainer
           key={content.id}
           isEtc={content.isEtc}
           isFocused={isFocused}>
+          {/* 객관식 질문 */}
           {inputType === inputTypes.RADIO ? (
             <MaterialCommunityIcons
               name="radiobox-blank"
@@ -81,6 +82,7 @@ const ItemTypeSection = ({ id }: Pick<ICardProps, 'id'>): JSX.Element => {
               color={colors.gray}
             />
           ) : null}
+          {/* 체크박스 */}
           {inputType === inputTypes.CHECKBOX ? (
             <MaterialCommunityIcons
               name="checkbox-blank-outline"
@@ -96,7 +98,7 @@ const ItemTypeSection = ({ id }: Pick<ICardProps, 'id'>): JSX.Element => {
                 fontStyle,
                 { color: content.isEtc ? colors.gray : colors.black },
               ]}
-              style={inputStyle}
+              style={{ flex: 1 }}
               color={colors.purple}
               value={content.isEtc ? '기타...' : content.text}
               onChangeText={(text: string) =>
@@ -105,10 +107,11 @@ const ItemTypeSection = ({ id }: Pick<ICardProps, 'id'>): JSX.Element => {
               editable={!content.isEtc}
             />
           ) : (
-            <S.ItemAddLabel>
+            <S.ItemLabel isEtc={content.isEtc}>
               {content.isEtc ? '기타...' : content.text}
-            </S.ItemAddLabel>
+            </S.ItemLabel>
           )}
+          {/* 옵션 항목이 2개 이상일 때, 삭제 아이콘 표시 */}
           {isFocused && contents.length > 1 ? (
             <IconButton
               onPress={handleRemoveSelectItem(content.id)}
@@ -124,6 +127,7 @@ const ItemTypeSection = ({ id }: Pick<ICardProps, 'id'>): JSX.Element => {
           ) : null}
         </S.ItemContainer>
       ))}
+      {/* isFocus일 때, 옵션 추가 표시 */}
       {isFocused ? (
         <S.ItemAddContainer>
           {inputType === inputTypes.RADIO ? (
@@ -153,6 +157,7 @@ const ItemTypeSection = ({ id }: Pick<ICardProps, 'id'>): JSX.Element => {
                 옵션 추가
               </S.ItemAddLabel>
             </TouchableOpacity>
+            {/* '기타' 항목이 존재하지 않으면 추가 라벨 표시 */}
             {!haveEtc ? (
               <>
                 <S.ItemAddLabel style={{ marginHorizontal: 6 }}>

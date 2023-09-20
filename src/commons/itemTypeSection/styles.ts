@@ -1,20 +1,16 @@
 import { StyleSheet } from 'react-native';
 import styled, { DefaultTheme } from 'styled-components/native';
 
-export const propsStyles = () =>
-  StyleSheet.create({
-    inputStyle: {
-      flex: 1,
-      marginLeft: 14,
-    },
-    inputContainer: {
-      width: 186,
-    },
-    fontStyle: {
-      fontSize: 14,
-      fontWeight: '400',
-    },
-  });
+export const propsStyles = StyleSheet.create({
+  inputContainer: {
+    width: '86%',
+    marginLeft: 14,
+  },
+  fontStyle: {
+    fontSize: 14,
+    fontWeight: '400',
+  },
+});
 
 export const Container = styled.View`
   flex-direction: row;
@@ -32,10 +28,12 @@ export const ItemContainer = styled(Container)<{
     isFocused ? 0 : '8px'};
 `;
 
-export const ItemLabel = styled.Text`
+export const ItemLabel = styled.Text<{ isEtc: boolean }>`
+  margin-left: 6px;
   font-size: 14px;
   font-weight: 500;
-  color: ${({ theme }: { theme: DefaultTheme }) => theme.colors.black};
+  color: ${({ isEtc, theme }: { isEtc: boolean; theme: DefaultTheme }) =>
+    isEtc ? theme.colors.gray : theme.colors.black};
 `;
 
 export const ItemAddContainer = styled(Container)`

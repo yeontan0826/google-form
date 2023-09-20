@@ -1,5 +1,5 @@
 import { Platform } from 'react-native';
-import styled from 'styled-components/native';
+import styled, { DefaultTheme } from 'styled-components/native';
 import { colors } from '@styles/theme';
 
 export const Container = styled.View<{ isFocused: boolean }>`
@@ -9,14 +9,15 @@ export const Container = styled.View<{ isFocused: boolean }>`
   padding-top: ${Platform.OS === 'ios' ? '10px' : '4px'};
   border-top-width: 1px;
   border-top-style: solid;
-  border-top-color: ${colors.gray_light};
+  border-top-color: ${({ theme }: { theme: DefaultTheme }) =>
+    theme.colors.gray_light};
 `;
 
 export const RequiredLabel = styled.Text`
   margin-right: ${Platform.OS === 'ios' ? '12px' : '4px'};
   font-size: 14px;
   font-weight: 400;
-  color: ${colors.black};
+  color: ${({ theme }: { theme: DefaultTheme }) => theme.colors.black};
 `;
 
 export const MoreItemContainer = styled.View`

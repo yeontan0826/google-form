@@ -1,4 +1,8 @@
-import { createStackNavigator } from '@react-navigation/stack';
+import Header from '@components/header';
+import {
+  StackHeaderProps,
+  createStackNavigator,
+} from '@react-navigation/stack';
 
 import Form from '@screens/form/form.container';
 import Preview from '@screens/preview/preview.container';
@@ -11,11 +15,20 @@ const MainStack = (): JSX.Element => {
     <Stack.Navigator
       initialRouteName="form"
       screenOptions={{
-        headerShown: false,
         cardStyle: { backgroundColor },
       }}>
-      <Stack.Screen name="form" component={Form} />
-      <Stack.Screen name="preview" component={Preview} />
+      <Stack.Screen
+        name="form"
+        component={Form}
+        options={{
+          header: (props: StackHeaderProps) => <Header {...props} />,
+        }}
+      />
+      <Stack.Screen
+        name="preview"
+        component={Preview}
+        options={{ headerShown: false }}
+      />
     </Stack.Navigator>
   );
 };

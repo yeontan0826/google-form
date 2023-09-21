@@ -52,22 +52,16 @@ const FormUI = ({
         renderItem={renderItem}
       />
       <S.AddCardWrapper>
-        <S.AddCard activeOpacity={0.6} onPress={handleGoPreview}>
-          <MaterialCommunityIcons
-            name="eye-outline"
-            size={26}
-            color={colors.gray}
-          />
-          <S.AddCardLabel>미리보기</S.AddCardLabel>
-        </S.AddCard>
-        <S.AddCard activeOpacity={0.6} onPress={addNewCard}>
-          <MaterialCommunityIcons
-            name="plus-circle-outline"
-            size={26}
-            color={colors.gray}
-          />
-          <S.AddCardLabel>추가하기</S.AddCardLabel>
-        </S.AddCard>
+        <S.ShadowView elevation={4}>
+          <S.AddCard activeOpacity={0.6} onPress={addNewCard}>
+            <MaterialCommunityIcons
+              name="plus-circle-outline"
+              size={26}
+              color={colors.gray}
+            />
+            <S.AddCardLabel>추가하기</S.AddCardLabel>
+          </S.AddCard>
+        </S.ShadowView>
       </S.AddCardWrapper>
     </S.Wrapper>
   );

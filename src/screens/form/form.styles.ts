@@ -1,5 +1,6 @@
 import { Platform, StyleSheet } from 'react-native';
 import styled, { DefaultTheme } from 'styled-components/native';
+import { Surface } from '@react-native-material/core';
 
 export const flatListStyles = StyleSheet.create({
   container: {
@@ -20,16 +21,18 @@ export const AddCardWrapper = styled.View`
   left: 0;
   right: 0;
   flex: 1;
-  flex-direction: row;
   padding-left: 22px;
   padding-right: 22px;
 `;
 
+export const ShadowView = styled(Surface)`
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+`;
+
 export const AddCard = styled.TouchableOpacity`
   flex-direction: row;
-  width: 100%;
   height: 50px;
-  flex: 1;
   justify-content: center;
   align-items: center;
   background-color: ${({ theme }: { theme: DefaultTheme }) =>

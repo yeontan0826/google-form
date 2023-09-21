@@ -20,7 +20,7 @@ module.exports = function (api) {
           ],
           // prettier-ignore
           alias: {
-            '@commons': './src/commons',
+            '@components': './src/components',
             '@screens': './src/screens',
             '@stacks': './src/stacks',
             '@redux': './src/redux',

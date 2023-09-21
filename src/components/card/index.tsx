@@ -5,10 +5,10 @@ import { shallowEqual, useSelector, useDispatch } from 'react-redux';
 import * as S from './styles';
 import { colors } from '@styles/theme';
 
-import CardHeader from '@commons/cardHeader';
-import TextFieldSection from '@commons/textFieldSection';
-import CardFooter from '@commons/cardFooter';
-import ItemTypeSection from '@commons/itemTypeSection';
+import CardHeader from '@/src/components/cardHeader';
+import TextFieldSection from '@/src/components/textFieldSection';
+import CardFooter from '@/src/components/cardFooter';
+import ItemTypeSection from '@/src/components/itemTypeSection';
 
 import { ICardProps, IStateProps, inputTypes } from '@redux/reducer/types';
 import { focus } from '@redux/reducer/cardReducer';

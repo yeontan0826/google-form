@@ -8,8 +8,10 @@ import {
 import { AnyAction, Dispatch } from '@reduxjs/toolkit';
 
 import { colors } from '@styles/theme';
-import { ICard } from '@commons/card';
-import InputTypeItem, { IInputTypeItemProps } from '@commons/inputTypeItem';
+import { ICard } from '@/src/components/card';
+import InputTypeItem, {
+  IInputTypeItemProps,
+} from '@/src/components/inputTypeItem';
 import BottomSheetBackDrop, { IBottomSheetBackDrop } from '../backdrop';
 
 import { InputTypes, inputTypes } from '@redux/reducer/types';

@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as S from './styles';
 import { colors } from '@styles/theme';
 import { getRandomId } from '@utils/getRandomId';
-import BottomSheetMore from '@commons/bottomSheet/more';
+import BottomSheetMore from '@/src/components/bottomSheet/more';
 
 import { ICardProps, IStateProps } from '@redux/reducer/types';
 import {

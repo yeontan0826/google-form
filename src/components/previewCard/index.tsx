@@ -1,10 +1,10 @@
 import { useSelector } from 'react-redux';
 
 import * as S from './styles';
-import PreviewCardTitle from '@commons/previewCardTitle';
-import InputTextField from '@commons/inputTextField';
-import InputRadio from '@commons/inputRadio';
-import InputCheckbox from '@commons/inputCheckbox';
+import PreviewCardTitle from '@/src/components/previewCardTitle';
+import InputTextField from '@/src/components/inputTextField';
+import InputRadio from '@/src/components/inputRadio';
+import InputCheckbox from '@/src/components/inputCheckbox';
 
 import {
   ICardProps,

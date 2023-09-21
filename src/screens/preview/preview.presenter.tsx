@@ -5,7 +5,7 @@ import { Button, VStack } from '@react-native-material/core';
 import * as S from './preview.styles';
 import { IPreviewUI } from './preview.types';
 import { colors } from '@styles/theme';
-import PreviewCard from '@commons/previewCard';
+import PreviewCard from '@components/previewCard';
 
 import { ICardProps } from '@redux/reducer/types';
 

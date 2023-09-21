@@ -8,11 +8,11 @@ import { shallowEqual, useSelector, useDispatch } from 'react-redux';
 import * as S from './styles';
 import { colors } from '@styles/theme';
 
-import { ICard } from '@commons/card';
-import { IInputTypeItemProps } from '@commons/inputTypeItem';
+import { ICard } from '@/src/components/card';
+import { IInputTypeItemProps } from '@/src/components/inputTypeItem';
 import BottomSheetInputTypeList, {
   inputTypeItems,
-} from '@commons/bottomSheet/inputTypeList';
+} from '@/src/components/bottomSheet/inputTypeList';
 
 import { ICardProps, IStateProps, InputTypes } from '@redux/reducer/types';
 import { setTitle } from '@redux/reducer/cardReducer';

@@ -16,6 +16,12 @@ export const colors = {
   red: '#dd1919',
   red_light: '#f64d4d',
   red_dark: '#901212',
+  orange: '#fe564a',
+  orange_light: '#f59089',
+  orange_dark: '#a7251c',
+  mint: '#92b8b1',
+  mint_light: '#bee2db',
+  mint_dark: '#536e69',
 };
 
 export type ColorsTypes = typeof colors;

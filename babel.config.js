@@ -26,6 +26,7 @@ module.exports = function (api) {
             '@redux': './src/redux',
             '@styles': './src/styles',
             '@utils': './src/utils',
+            '@assets': './assets',
             '@': './',
           },
         },

@@ -24,7 +24,12 @@ const PreviewUI = ({
             </View>
           ))}
           <S.FooterContainer>
-            <Button title="제출" color={colors.purple} onPress={handleSubmit} />
+            <Button
+              title="제출"
+              color={colors.orange}
+              titleStyle={{ color: colors.white }}
+              onPress={handleSubmit}
+            />
             <TouchableOpacity activeOpacity={0.6}>
               <S.EraseLabel>양식 지우기</S.EraseLabel>
             </TouchableOpacity>

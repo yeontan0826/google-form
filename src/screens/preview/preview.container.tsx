@@ -13,7 +13,7 @@ const Preview = ({
   const cards = useSelector((state: IStateProps) => state.cards);
 
   const handleSubmit = (): void => {
-    Alert.alert('Classum', '지금이 몇시지..?\n이제 자야겠다...');
+    Alert.alert('', '대회 우승 가즈아!!!!');
   };
 
   const handleGoBack = (): void => {

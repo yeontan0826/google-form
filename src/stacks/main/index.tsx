@@ -9,7 +9,7 @@ import Preview from '@screens/preview/preview.container';
 
 const Stack = createStackNavigator();
 
-const backgroundColor: string = '#f0ebf8';
+const backgroundColor: string = '#f7eaea';
 const MainStack = (): JSX.Element => {
   return (
     <Stack.Navigator

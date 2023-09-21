@@ -2,7 +2,7 @@ import { View } from 'react-native';
 import DraggableFlatList, {
   RenderItemParams,
 } from 'react-native-draggable-flatlist';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
 
 import * as S from './form.styles';
 import { colors } from '@styles/theme';
@@ -11,12 +11,7 @@ import Card from '@components/card';
 
 import { ICardProps, inputTypes } from '@redux/reducer/types';
 
-const FormUI = ({
-  cards,
-  onDragEnd,
-  addNewCard,
-  handleGoPreview,
-}: IFormUI): JSX.Element => {
+const FormUI = ({ cards, onDragEnd, addNewCard }: IFormUI): JSX.Element => {
   const [cardTitle, ...cardsExceptTitle] = cards;
 
   const listHeader = (): JSX.Element => {
@@ -54,11 +49,7 @@ const FormUI = ({
       <S.AddCardWrapper>
         <S.ShadowView elevation={4}>
           <S.AddCard activeOpacity={0.6} onPress={addNewCard}>
-            <MaterialCommunityIcons
-              name="plus-circle-outline"
-              size={26}
-              color={colors.gray}
-            />
+            <MaterialIcons name="library-add" size={26} color={colors.gray} />
             <S.AddCardLabel>추가하기</S.AddCardLabel>
           </S.AddCard>
         </S.ShadowView>

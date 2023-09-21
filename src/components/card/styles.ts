@@ -38,7 +38,7 @@ export const TitleHighlight = styled.View`
   right: 0;
   height: 10px;
   background-color: ${({ theme }: { theme: DefaultTheme }) =>
-    theme.colors.purple};
+    theme.colors.orange};
   z-index: 10;
 `;
 
@@ -49,6 +49,6 @@ export const ClickHighlight = styled.View`
   bottom: 0;
   width: 6px;
   background-color: ${({ theme }: { theme: DefaultTheme }) =>
-    theme.colors.blue};
+    theme.colors.mint};
   z-index: 5;
 `;

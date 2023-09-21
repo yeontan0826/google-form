@@ -5,5 +5,4 @@ export interface IFormUI {
   cards: ICardProps[];
   onDragEnd: ({ from, to }: DragEndParams<ICardProps>) => void;
   addNewCard: () => void;
-  handleGoPreview: () => void;
 }

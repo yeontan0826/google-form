@@ -39,7 +39,7 @@ const PreviewCardTitle = ({ id }: Pick<ICardProps, 'id'>): JSX.Element => {
   ) as boolean;
 
   const handleSwitchAccount = (): void => {
-    Alert.alert('Classum', 'naver mail\nvs\ngmail');
+    Alert.alert('naver mail vs gmail', 'I prefer Gmail.');
   };
 
   const isTitle = inputType === inputTypes.TITLE;

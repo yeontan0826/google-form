@@ -1,21 +1,22 @@
-# 실행 방법
+# google-form
+구글 설문지 클론 토이 프로젝트
 
-## Step 1: 패키지 설치
+***local state는 전혀 사용하지않았으며 오직 redux만을 활용하여 만들었습니다.***
 
-프로젝트 폴더로 들어가 `yarn install` 명령어를 통해 패키지들을 설치합니다.
+<br>
 
-## Step 2: expo 실행
+|카드 추가|카드 삭제|
+|:-----:|:-----:|
+|![screenshot](https://github.com/yeontan0826/google-form/blob/master/assets/screenshots/add_card.gif)|![screenshot](https://github.com/yeontan0826/google-form/blob/master/assets/screenshots/delete_card.gif)|
 
-`yarn start` 명령어를 통해 expo를 실행합니다.
+|카드 복사|질문 종류|
+|:-----:|:-----:|
+|![screenshot](https://github.com/yeontan0826/google-form/blob/master/assets/screenshots/copy_card.gif)|![screenshot](https://github.com/yeontan0826/google-form/blob/master/assets/screenshots/question_type.gif)|
 
-## TroubleShooting
+|객관식 질문 옵션|체크박스 질문 옵션|
+|:-----:|:-----:|
+|![screenshot](https://github.com/yeontan0826/google-form/blob/master/assets/screenshots/radio_options.gif)|![screenshot](https://github.com/yeontan0826/google-form/blob/master/assets/screenshots/check_options.gif)|
 
-**iOS, AOS 에뮬레이터가 작동되지 않을 경우, 개인 휴대폰을 통해 확인이 가능합니다.**
-
-**단, 개인 휴대폰**
-
-아래의 페이지에 접속하여 어플을 설치 후, QR코드를 통해 개인 휴대폰으로 테스트가 가능합니다.
-
-안드로이드 유저: [Google Play - Expo](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en-KR)
-
-아이폰 유저: [App Store - Expo](https://apps.apple.com/kr/app/expo-go/id982107779)
+|필수 체크/해제|미리보기|
+|:-----:|:-----:|
+|![screenshot](https://github.com/yeontan0826/google-form/blob/master/assets/screenshots/required.gif)|![screenshot](https://github.com/yeontan0826/google-form/blob/master/assets/screenshots/preview.gif)|

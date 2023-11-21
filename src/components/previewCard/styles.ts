@@ -19,6 +19,6 @@ export const TitleHighlight = styled.View`
   right: 0;
   height: 10px;
   background-color: ${({ theme }: { theme: DefaultTheme }) =>
-    theme.colors.orange};
+    theme.colors.purple};
   z-index: 10;
 `;

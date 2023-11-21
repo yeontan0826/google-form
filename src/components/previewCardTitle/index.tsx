@@ -54,7 +54,7 @@ const PreviewCardTitle = ({ id }: Pick<ICardProps, 'id'>): JSX.Element => {
         <>
           <S.AccountSection>
             <S.RowContainer>
-              <S.Email>yeontan0826@naver.com</S.Email>
+              <S.Email>email@gmail.com</S.Email>
               <TouchableOpacity
                 onPress={handleSwitchAccount}
                 activeOpacity={0.6}>

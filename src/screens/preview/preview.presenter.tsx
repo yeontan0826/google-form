@@ -26,7 +26,7 @@ const PreviewUI = ({
           <S.FooterContainer>
             <Button
               title="제출"
-              color={colors.orange}
+              color={colors.purple}
               titleStyle={{ color: colors.white }}
               onPress={handleSubmit}
             />

@@ -22,11 +22,11 @@ export const Fab = styled(TouchableOpacity)`
   align-items: center;
   border-radius: 30px;
   background-color: ${({ theme }: { theme: DefaultTheme }) =>
-    theme.colors.orange_light};
+    theme.colors.purple_light};
 `;
 
 export const EraseLabel = styled.Text`
-  color: ${({ theme }: { theme: DefaultTheme }) => theme.colors.orange};
+  color: ${({ theme }: { theme: DefaultTheme }) => theme.colors.purple};
   font-size: 14px;
   font-weight: 500;
 `;

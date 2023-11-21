@@ -18,9 +18,10 @@ export const Container = styled.View`
     theme.colors.white};
 `;
 
-export const IconContainer = styled.View`
-  flex: 1;
-  background-color: red;
+export const Logo = styled.Text`
+  font-size: 20px;
+  font-weight: bold;
+  color: ${({ theme }: { theme: DefaultTheme }) => theme.colors.purple_dark};
 `;
 
 export const PreviewButton = styled.TouchableOpacity`
